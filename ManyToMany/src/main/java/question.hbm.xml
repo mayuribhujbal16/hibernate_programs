@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+    <class name="test.Question" table="Question123">
+        <id name="id" type="int">
+        <column name="qid"/>
+            <generator class="increment"/>
+        </id>
+
+        <property name="qname"/>
+
+        <list name="answers" table="que_ans_123" fetch="select" cascade="all">
+            <key column ="qid"></key>
+            <index column ="type"></index>
+            
+            <many-to-many class="test.Answers" column="ansid"></many-to-many>
+        </list> 
+        
+
+    </class>
+</hibernate-mapping>
